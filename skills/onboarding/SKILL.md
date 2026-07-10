@@ -30,19 +30,22 @@ so later applications fill themselves. Keep it fast — parse what you can, only
    - **Work authorization**: country, "authorized to work?", "require sponsorship now or in future?",
      visa status. These appear on almost every form — get them exact.
    - Compensation expectation, notice period / earliest start.
-   - **Standard screening** — the template pre-fills the common ones to safe defaults
-     (non-compete: No, felony: No, illegal activity: No, 18+: Yes, previously worked here: No).
-     Show them, ask the user to confirm or override. Never silently assume anything legal.
+   - **Standard screening (legal attestations)** — the template leaves these **blank**. Propose the
+     safe defaults (non-compete: No, felony: No, illegal activity: No, accommodation: No, previously
+     employed here: No, 18+: Yes) and have the user confirm each or override. Write a value **only
+     after explicit confirmation**. If the user skips, leave it blank — blank means *unconfirmed*, and
+     apply will flag it rather than attest.
    - **EEO / demographics** (gender, race/ethnicity, veteran, disability): state clearly these are
      **voluntary**; "prefer not to answer" is a valid, respected answer. Record exactly what they say.
    - References.
 
 5. **Seed the answer memory.** If `~/.dear-hiring-manager/answers.md` is missing, copy
-   `${CLAUDE_PLUGIN_ROOT}/templates/answers.template.md` there. Add a few starter entries derived from the profile (work
-   authorization, sponsorship, relocation, salary) in the entry format, `source: profile`.
+   `${CLAUDE_PLUGIN_ROOT}/templates/answers.template.md` there. Add a few starter entries from
+   **confirmed, non-blank** profile fields (work authorization, sponsorship, relocation, salary) in the
+   entry format, `source: profile`. Never seed unconfirmed or blank values (especially legal attestations).
 
 6. **Confirm done.** Print the profile path and a one-line completeness check (any field still blank).
-   Tell them they can now run `/apply <job-url>`.
+   Tell them they can now run `/dear-hiring-manager:apply <job-url>`.
 
 ## Rules
 - Human-readable Markdown only. No database, no API keys.

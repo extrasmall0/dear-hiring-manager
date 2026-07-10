@@ -13,16 +13,17 @@ before Submit** so you own the last click. AI understands; the browser executes.
    /plugin install dear-hiring-manager
    ```
    The Playwright MCP server (`@playwright/mcp`) is bundled; approve it when prompted.
+   Plugin commands are namespaced as `/dear-hiring-manager:<command>`.
 
 2. **Onboard once** — build your profile and register your resume:
    ```
-   /onboard
+   /dear-hiring-manager:onboard
    ```
    Writes `~/.dear-hiring-manager/profile.md` (identity, work authorization, EEO, screening answers).
 
 3. **Apply to a job** — fill a posting, review, submit yourself:
    ```
-   /apply https://boards.greenhouse.io/acme/jobs/123456
+   /dear-hiring-manager:apply https://boards.greenhouse.io/acme/jobs/123456
    ```
    Opens the posting in a browser, fills the form, parks at Submit. You review the flagged fields and
    click Submit. Your edits are learned back into `~/.dear-hiring-manager/answers.md`.

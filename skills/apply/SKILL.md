@@ -11,7 +11,8 @@ browser tab parked at the Submit button for the human to review, edit, and send.
 Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applications.md`, `resume.*`.
 
 ## Preconditions
-- If `~/.dear-hiring-manager/profile.md` is missing, stop and tell the user to run `/onboard` first.
+- If `~/.dear-hiring-manager/profile.md` is missing, stop and tell the user to run
+  `/dear-hiring-manager:onboard` first.
 
 ## Procedure
 
@@ -27,8 +28,10 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
    (matched strengths, gaps). Record the score in the tracker row.
 
 4. **Map every form field.** For each field on the page:
-   - **Profile-backed** (name, contact, work auth, sponsorship, salary, standard screening):
-     fill from `profile.md`.
+   - **Profile-backed** (name, contact, work auth, sponsorship, salary): fill from `profile.md`.
+   - **Legal attestations** (non-compete, felony, illegal activity, accommodation, previously-employed,
+     age): fill **only** from a confirmed, non-blank `profile.md` value. If blank/unconfirmed, **flag and
+     leave for the human** — never auto-attest a legal answer from a default.
    - **Voluntary EEO** (gender, race/ethnicity, veteran, disability): use `profile.md` if set; if
      blank, select "prefer not to answer" / "decline to self-identify". Never flag, never block on these.
    - **Open-ended / unseen** (e.g. "Why this company?", custom screening): search `answers.md` for a

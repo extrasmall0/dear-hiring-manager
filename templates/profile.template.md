@@ -32,13 +32,16 @@
 - Notice period / earliest start date:
 - Currently employed:
 
-## Standard screening (defaults — confirm during onboarding)
-- Subject to a non-compete agreement: No
-- Ever convicted of a felony: No
-- Involved in illegal activity: No
-- Require accommodation to apply/interview: No
-- Previously employed by this company: No
-- At least 18 years old: Yes
+## Standard screening (legal attestations — left BLANK until you confirm in onboarding)
+<!-- Onboarding proposes safe defaults — non-compete: No, felony: No, illegal activity: No,
+     accommodation: No, previously employed here: No, 18+: Yes — and writes a value only after
+     you confirm each. Blank here = UNCONFIRMED: apply will flag it, never auto-attest. -->
+- Subject to a non-compete agreement:
+- Ever convicted of a felony:
+- Involved in illegal activity:
+- Require accommodation to apply/interview:
+- Previously employed by this company:
+- At least 18 years old:
 
 ## EEO / demographics (voluntary — "prefer not to answer" is valid)
 - Gender:

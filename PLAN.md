@@ -58,9 +58,11 @@ Input one job URL →
 4. Unseen open-ended question → fill best-guess **+ flag** (or stop and ask, per confidence).
 5. **Stop before Submit.** Human reviews the visible tab, edits, clicks Submit.
 6. After submit: agent asks "what did you change?" → append new/edited Q&A to `answers.md`.
-- **Done when:** on 2–3 real postings across ≥2 ATS (Greenhouse/Lever/Ashby), agent opens
-  browser, fills all mappable fields, flags unknowns, stops before submit, and appends the
-  human's edits back to `answers.md`.
+- **Done when:** on 2–3 real postings across ≥2 *different* sites — at least one common ATS
+  (Greenhouse/Lever/Ashby/Workday) **and** one company's own/custom careers form — the agent opens
+  the browser, fills all mappable fields, flags unknowns, stops before submit, and appends the
+  human's edits back to `answers.md`. Phase 1 is ATS-agnostic by design; ATS-specific handling is
+  a Phase 3 optimization only.
 
 ### Phase 2 — Batch + tracking + cover letter
 - Batch import N URLs → loop P1, each own tab, all stop before submit, review together.
