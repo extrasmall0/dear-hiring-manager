@@ -1,0 +1,10 @@
+{
+  "name": "dear-hiring-manager",
+  "version": "0.1.0",
+  "description": "Assisted job-application filler. Extracts the JD, scores fit, fills every form field from your profile and answer memory, and stops before Submit for your review. Runs interactively in Claude Code.",
+  "author": {
+    "name": "xshuai",
+    "email": ""
+  },
+  "keywords": ["job-application", "ats", "playwright", "assisted-apply", "human-in-the-loop"]
+}
