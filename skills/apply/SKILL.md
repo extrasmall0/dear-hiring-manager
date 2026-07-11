@@ -95,3 +95,14 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
 - Flag internal profile inconsistencies you spot (e.g. phone country code vs stated location).
 - Append-only memory: human edits win by being newer, not by overwriting.
 - One posting per run. Batch is Phase 2.
+
+## ATS notes (from dogfooding)
+- **Greenhouse** (`job-boards.greenhouse.io`, or iframe-embedded e.g. `careers.airbnb.com`): fields are
+  in the DOM; screening/EEO are react-select comboboxes (click → type → Enter). Works well. A `reCAPTCHA`
+  usually guards Submit — fine, the human submits. Verified: Airbnb, Overstory, Transcend.
+- **Stale/closed postings**: redirect to the board root with `?error=true` and no form → stop (step 1).
+- **Ashby** (`jobs.ashbyhq.com`): JS single-page app; a static fetch sees only the shell. Drive it with
+  the browser (Playwright renders the JS); don't rely on page-source scraping.
+- **Lever** (`jobs.lever.co`): bot-blocks static fetches (HTTP 403). Use the browser.
+- **Workday** (`*.myworkday.com`): usually requires creating an account/login before the form, plus
+  custom widgets. Treat as Tier 3 — skip or hand to the human unless already signed in.
