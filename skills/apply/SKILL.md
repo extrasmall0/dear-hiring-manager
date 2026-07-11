@@ -78,8 +78,15 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
    Submit yourself.
 
 8. **Learn after submit.** When the human says they've submitted (or edited), ask what they changed.
-   For each change, **append** a new entry to `answers.md` (never overwrite) in the template format,
-   `source: human-edit`, tagged with company + role + date. Update the tracker row `status=submitted`.
+   Route each change to the right place so future applications benefit:
+   - **Profile-level fact** (salary expectation, location/city, phone, links, work authorization — a
+     field that lives in `profile.md`): update `profile.md` so *every* future application picks it up
+     and stops re-flagging it, not just keyword lookups.
+   - **Company/role-specific or open-ended** (e.g. "Why this company?", a custom essay): **append** a
+     new entry to `answers.md` (never overwrite), `source: human-edit`, tagged with company + role + date.
+   - **Legal attestation the human confirms**: write the confirmed value to `profile.md` (now confirmed)
+     and seed a matching `answers.md` entry.
+   Then update the tracker row `status=submitted`.
 
 ## Rules
 - AI understands; the browser + deterministic steps execute. Don't improvise clicks beyond filling.
