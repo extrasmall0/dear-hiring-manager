@@ -2,7 +2,6 @@
 
 > Source design, captured verbatim-in-spirit. `PLAN.md` is the engineered/simplified version;
 > this file preserves the original intent + a traceability map from every idea to where it lands.
-> Reference project: https://github.com/torontodeveloper/job-application-agent
 
 ## Problem
 
