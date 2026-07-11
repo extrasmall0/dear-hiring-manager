@@ -51,11 +51,14 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
      matching prior Q&A. Prefer the newest, most company/role-specific match.
        - Match found → adapt and fill.
        - No match → write a best-guess grounded in resume + profile, fill it, and **flag** it.
-   - **File uploads (resume/CV, cover letter)**: Playwright can only read files under the project /
-     allowed root, so first copy `~/.dear-hiring-manager/resume.*` into the MCP output dir
-     (`.playwright-mcp/`), then upload from there.
-   - **Comboboxes**: many ATS (Greenhouse/Ashby) render react-select, not native `<select>` — click to
-     open, type the option text, then press Enter; don't rely on select-option.
+   - **File uploads (resume/CV, cover letter)**: Playwright MCP sandboxes file reads to the workspace
+     root. Copy `~/.dear-hiring-manager/resume.*` into `.playwright-mcp/` (gitignored), upload from
+     there, then delete the staged copy. Do NOT enable `--allow-unrestricted-file-access` — staging
+     keeps the sandbox intact instead of exposing every file on the machine.
+   - **Comboboxes**: many ATS (Greenhouse/Ashby) render react-select, not native `<select>`. You MUST
+     first **click** the combobox to open its menu, THEN type the option text, THEN press Enter.
+     Typing/fill without opening first silently fails — the field stays empty (`Select...`). Re-snapshot
+     to confirm each value stuck; `browser_fill_form` with type `combobox` does not work on react-select.
    - Confidence rule: high confidence → fill quietly. Low confidence or anything legal/sensitive with
      no profile answer → fill best-guess **and flag**, or leave blank and flag. When in doubt, flag.
 
@@ -75,8 +78,15 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
    Submit yourself.
 
 8. **Learn after submit.** When the human says they've submitted (or edited), ask what they changed.
-   For each change, **append** a new entry to `answers.md` (never overwrite) in the template format,
-   `source: human-edit`, tagged with company + role + date. Update the tracker row `status=submitted`.
+   Route each change to the right place so future applications benefit:
+   - **Profile-level fact** (salary expectation, location/city, phone, links, work authorization — a
+     field that lives in `profile.md`): update `profile.md` so *every* future application picks it up
+     and stops re-flagging it, not just keyword lookups.
+   - **Company/role-specific or open-ended** (e.g. "Why this company?", a custom essay): **append** a
+     new entry to `answers.md` (never overwrite), `source: human-edit`, tagged with company + role + date.
+   - **Legal attestation the human confirms**: write the confirmed value to `profile.md` (now confirmed)
+     and seed a matching `answers.md` entry.
+   Then update the tracker row `status=submitted`.
 
 ## Rules
 - AI understands; the browser + deterministic steps execute. Don't improvise clicks beyond filling.
@@ -85,3 +95,14 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
 - Flag internal profile inconsistencies you spot (e.g. phone country code vs stated location).
 - Append-only memory: human edits win by being newer, not by overwriting.
 - One posting per run. Batch is Phase 2.
+
+## ATS notes (from dogfooding)
+- **Greenhouse** (`job-boards.greenhouse.io`, or iframe-embedded e.g. `careers.airbnb.com`): fields are
+  in the DOM; screening/EEO are react-select comboboxes (click → type → Enter). Works well. A `reCAPTCHA`
+  usually guards Submit — fine, the human submits. Verified: Airbnb, Overstory, Transcend.
+- **Stale/closed postings**: redirect to the board root with `?error=true` and no form → stop (step 1).
+- **Ashby** (`jobs.ashbyhq.com`): JS single-page app; a static fetch sees only the shell. Drive it with
+  the browser (Playwright renders the JS); don't rely on page-source scraping.
+- **Lever** (`jobs.lever.co`): bot-blocks static fetches (HTTP 403). Use the browser.
+- **Workday** (`*.myworkday.com`): usually requires creating an account/login before the form, plus
+  custom widgets. Treat as Tier 3 — skip or hand to the human unless already signed in.

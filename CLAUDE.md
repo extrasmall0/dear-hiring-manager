@@ -1,11 +1,12 @@
 # CLAUDE.md — dear-hiring-manager
 
-Guidance for any agent working in this repo. Read this + `PLAN.md`, `PRD.md`, `TODO.md` first.
+Guidance for any agent working in this repo. Also read `PLAN.md`, `PRD.md`, `TODO.md` if present —
+local planning docs, gitignored (not in fresh clones).
 
 ## What this is
 A **Claude Code plugin** that assists job applications: extract the JD, score fit, fill the form via
 Playwright, and **stop before Submit** for the human. Not a standalone agent — Claude Code is the
-runtime; this repo is the skill/knowledge layer. (Phase 3 later adds a real daemon; see PLAN.md.)
+runtime; this repo is the skill/knowledge layer. (Phase 3 later adds a real daemon.)
 
 ## Architecture principle
 **AI understands; code + the browser execute.** The LLM reads pages, fields, JD, matching, cover
@@ -18,7 +19,8 @@ letters. Playwright does open/click/type/wait. Never make the LLM the hands.
 - `skills/onboarding/SKILL.md` — interview → `profile.md`, parse resume, seed `answers.md`
 - `skills/apply/SKILL.md` — the assisted-apply procedure (the core logic)
 - `templates/` — `profile` / `answers` / `applications` templates (copied to user data dir)
-- `PLAN.md` (phases) · `PRD.md` (original design + traceability) · `TODO.md` (backlog, gitignored/local)
+- `PLAN.md` (phases) · `PRD.md` (design + traceability) · `TODO.md` (backlog) — local planning docs,
+  gitignored (not shipped)
 
 ## User data (never in repo)
 `~/.dear-hiring-manager/`: `profile.md`, `answers.md` (append-only Q&A "RAG"), `applications.md`
@@ -42,8 +44,9 @@ letters. Playwright does open/click/type/wait. Never make the LLM the hands.
 ## Conventions
 - Skills reference bundled files via `${CLAUDE_PLUGIN_ROOT}/...`.
 - Plugin commands are namespaced `/dear-hiring-manager:<command>`.
-- Playwright MCP sandboxes file access to the project dir — stage `~/.dear-hiring-manager/resume.*`
-  into `.playwright-mcp/` before upload.
+- Playwright MCP sandboxes file reads to the workspace root — stage `~/.dear-hiring-manager/resume.*`
+  into `.playwright-mcp/` (gitignored) before upload, then delete the staged copy. Keep the sandbox;
+  do not use `--allow-unrestricted-file-access`.
 - **After each tested increment: commit AND `git push`** on the working branch (Conventional
   Commits). Work on a branch, not `main` directly; merge to `main` when Phase 1 is complete.
 
