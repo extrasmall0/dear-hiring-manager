@@ -51,9 +51,10 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
      matching prior Q&A. Prefer the newest, most company/role-specific match.
        - Match found → adapt and fill.
        - No match → write a best-guess grounded in resume + profile, fill it, and **flag** it.
-   - **File uploads (resume/CV, cover letter)**: Playwright can only read files under the project /
-     allowed root, so first copy `~/.dear-hiring-manager/resume.*` into the MCP output dir
-     (`.playwright-mcp/`), then upload from there.
+   - **File uploads (resume/CV, cover letter)**: Playwright MCP sandboxes file reads to the workspace
+     root. Copy `~/.dear-hiring-manager/resume.*` into `.playwright-mcp/` (gitignored), upload from
+     there, then delete the staged copy. Do NOT enable `--allow-unrestricted-file-access` — staging
+     keeps the sandbox intact instead of exposing every file on the machine.
    - **Comboboxes**: many ATS (Greenhouse/Ashby) render react-select, not native `<select>` — click to
      open, type the option text, then press Enter; don't rely on select-option.
    - Confidence rule: high confidence → fill quietly. Low confidence or anything legal/sensitive with

@@ -42,8 +42,9 @@ letters. Playwright does open/click/type/wait. Never make the LLM the hands.
 ## Conventions
 - Skills reference bundled files via `${CLAUDE_PLUGIN_ROOT}/...`.
 - Plugin commands are namespaced `/dear-hiring-manager:<command>`.
-- Playwright MCP sandboxes file access to the project dir — stage `~/.dear-hiring-manager/resume.*`
-  into `.playwright-mcp/` before upload.
+- Playwright MCP sandboxes file reads to the workspace root — stage `~/.dear-hiring-manager/resume.*`
+  into `.playwright-mcp/` (gitignored) before upload, then delete the staged copy. Keep the sandbox;
+  do not use `--allow-unrestricted-file-access`.
 - **After each tested increment: commit AND `git push`** on the working branch (Conventional
   Commits). Work on a branch, not `main` directly; merge to `main` when Phase 1 is complete.
 
