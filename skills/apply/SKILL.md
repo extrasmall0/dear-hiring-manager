@@ -17,7 +17,10 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
 ## Procedure
 
 1. **Open the posting.** Use the Playwright MCP tools to navigate to the URL. Take a page snapshot
-   (accessibility tree / DOM) — do not rely on vision unless the DOM is unusable.
+   (accessibility tree / DOM) — do not rely on vision unless the DOM is unusable. **If the URL
+   redirects to the board root or an error page (e.g. `?error=true`, only a job list / "Back to jobs",
+   no job title or application form), the posting is closed or expired — stop and tell the user; do not
+   proceed.**
 
 2. **Extract JD + company.** Pull role title, company, location, and the job description. Detect the
    ATS from the URL/DOM (greenhouse, lever, ashby, workday, other). Append a row to
