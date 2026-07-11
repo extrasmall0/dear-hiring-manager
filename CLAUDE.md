@@ -44,7 +44,8 @@ letters. Playwright does open/click/type/wait. Never make the LLM the hands.
 - Plugin commands are namespaced `/dear-hiring-manager:<command>`.
 - Playwright MCP sandboxes file access to the project dir — stage `~/.dear-hiring-manager/resume.*`
   into `.playwright-mcp/` before upload.
-- Commit messages: Conventional Commits; work on a branch, not `main` directly.
+- **After each tested increment: commit AND `git push`** on the working branch (Conventional
+  Commits). Work on a branch, not `main` directly; merge to `main` when Phase 1 is complete.
 
 ## How to test (dogfood, don't just check structure)
 1. `/plugin marketplace add <repo>` → `/plugin install dear-hiring-manager@dhm-local` → restart
