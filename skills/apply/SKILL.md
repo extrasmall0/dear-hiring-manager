@@ -62,8 +62,8 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
    - Confidence rule: high confidence → fill quietly. Low confidence or anything legal/sensitive with
      no profile answer → fill best-guess **and flag**, or leave blank and flag. When in doubt, flag.
 
-5. **Cover letter.** If the form has a cover-letter field, generate one tailored to the JD (draft it,
-   fill it, flag as review-me). Otherwise skip.
+5. **Cover letter.** If the form has a cover-letter field, use the **cover-letter** skill to draft a
+   tailored, truthful letter from the resume + JD, fill the field, and flag it review-me. Otherwise skip.
 
 6. **CAPTCHA / anti-bot.** If you hit a CAPTCHA or bot check, **do not attempt to solve or evade it.**
    Stop, leave the tab as-is, and tell the human to complete that step manually.
