@@ -21,14 +21,17 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
 
 2. **Extract JD + company.** Pull role title, company, location, and the job description. Detect the
    ATS from the URL/DOM (greenhouse, lever, ashby, workday, other). Append a row to
-   `applications.md` (create from `${CLAUDE_PLUGIN_ROOT}/templates/applications.template.md` if missing):
-   `date | company | role | url | ats | fit | status=filled | flags`.
+   `applications.md` (create from `${CLAUDE_PLUGIN_ROOT}/templates/applications.template.md` if missing)
+   with `status=in-progress` (fit is filled in the next step; status advances as the run proceeds):
+   `date | company | role | url | ats | fit | status | flags`.
 
-3. **Score fit, then gate.** Read `resume.*` and the JD. Give a 0–100 fit score with a 2–3 line
-   rationale (matched strengths, gaps). Record it in the tracker row. **Gate:** if fit is very low
-   (<~25) or there's a hard-eligibility blocker (the role's country needs work authorization the user
-   lacks), STOP and surface the mismatch before filling — ask whether to fill anyway or skip. Don't
-   robotically fill a doomed form.
+3. **Score fit — FIRST FILTER (hard gate, nothing filled before it passes).** Read `resume.*` and the
+   JD, give a 0–100 fit score with a 2–3 line rationale (matched strengths, gaps), and record it in the
+   tracker row. Read the user's **Minimum fit score to apply** from `profile.md` (default 50 if unset).
+   **If the score is below that threshold — or there's a hard-eligibility blocker (the role's country
+   needs work authorization the user lacks) — STOP here:** set the tracker row `status=skipped` (reason:
+   low-fit or ineligible), report the score, the threshold, and why, and do not fill the form. The user
+   can override by replying "apply anyway" or lowering their threshold.
 
 4. **Map every field — fill or flag, never silently skip.** Every required field must end up either
    filled or explicitly flagged; a blank required field is acceptable only when it is flagged. For each:
@@ -65,7 +68,8 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
    - Fields filled (grouped).
    - **⚑ Flagged fields** needing the human's eyes — list each with what you guessed and why.
    - **Required fields still blank/untouched** — list every one; the human must resolve these before Submit.
-   Tell the human: review the tab, fix flagged items, then click Submit yourself.
+   Update the tracker row `status=filled`. Tell the human: review the tab, fix flagged items, then click
+   Submit yourself.
 
 8. **Learn after submit.** When the human says they've submitted (or edited), ask what they changed.
    For each change, **append** a new entry to `answers.md` (never overwrite) in the template format,

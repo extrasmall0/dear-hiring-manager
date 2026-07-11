@@ -30,6 +30,8 @@ so later applications fill themselves. Keep it fast — parse what you can, only
    - **Work authorization**: country, "authorized to work?", "require sponsorship now or in future?",
      visa status. These appear on almost every form — get them exact.
    - Compensation expectation, notice period / earliest start.
+   - **Application preferences** — **minimum fit score to apply (0–100, default 50)**. This is the hard
+     filter: apply scores each job first and STOPS before filling if the score is below this number.
    - **Standard screening (legal attestations)** — the template leaves these **blank**. Propose the
      safe defaults (non-compete: No, felony: No, illegal activity: No, accommodation: No, previously
      employed here: No, 18+: Yes) and have the user confirm each or override. Write a value **only

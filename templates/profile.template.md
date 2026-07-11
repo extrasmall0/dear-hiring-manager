@@ -32,6 +32,9 @@
 - Notice period / earliest start date:
 - Currently employed:
 
+## Application preferences
+- Minimum fit score to apply (0–100): 50
+
 ## Standard screening (legal attestations — left BLANK until you confirm in onboarding)
 <!-- Onboarding proposes safe defaults — non-compete: No, felony: No, illegal activity: No,
      accommodation: No, previously employed here: No, 18+: Yes — and writes a value only after
