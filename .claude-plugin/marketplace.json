@@ -1,0 +1,14 @@
+{
+  "name": "dhm-local",
+  "owner": {
+    "name": "Shuai Xu",
+    "email": ""
+  },
+  "plugins": [
+    {
+      "name": "dear-hiring-manager",
+      "source": "./",
+      "description": "Assisted job-application filler. Extracts the JD, scores fit, fills the form via Playwright, and stops before Submit for your review."
+    }
+  ]
+}

@@ -10,10 +10,10 @@ before Submit** so you own the last click. AI understands; the browser executes.
 1. **Install the plugin** (local dev):
    ```
    /plugin marketplace add /Users/you/PycharmProjects/dear-hiring-manager
-   /plugin install dear-hiring-manager
+   /plugin install dear-hiring-manager@dhm-local
    ```
-   The Playwright MCP server (`@playwright/mcp`) is bundled; approve it when prompted.
-   Plugin commands are namespaced as `/dear-hiring-manager:<command>`.
+   Then **restart Claude Code** so the bundled Playwright MCP server (`@playwright/mcp`) loads;
+   approve it when prompted. Plugin commands are namespaced as `/dear-hiring-manager:<command>`.
 
 2. **Onboard once** — build your profile and register your resume:
    ```

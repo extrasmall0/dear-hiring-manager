@@ -24,11 +24,18 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
    `applications.md` (create from `${CLAUDE_PLUGIN_ROOT}/templates/applications.template.md` if missing):
    `date | company | role | url | ats | fit | status=filled | flags`.
 
-3. **Score fit.** Read `resume.*` and the JD. Give a 0–100 fit score with a 2–3 line rationale
-   (matched strengths, gaps). Record the score in the tracker row.
+3. **Score fit, then gate.** Read `resume.*` and the JD. Give a 0–100 fit score with a 2–3 line
+   rationale (matched strengths, gaps). Record it in the tracker row. **Gate:** if fit is very low
+   (<~25) or there's a hard-eligibility blocker (the role's country needs work authorization the user
+   lacks), STOP and surface the mismatch before filling — ask whether to fill anyway or skip. Don't
+   robotically fill a doomed form.
 
-4. **Map every form field.** For each field on the page:
-   - **Profile-backed** (name, contact, work auth, sponsorship, salary): fill from `profile.md`.
+4. **Map every field — fill or flag, never silently skip.** Every required field must end up either
+   filled or explicitly flagged; a blank required field is acceptable only when it is flagged. For each:
+   - **Profile-backed** (name, contact, salary): fill from `profile.md`.
+   - **Work authorization (per role country)**: answer for the ROLE's country — do not paste the
+     profile's raw yes/no. E.g. authorized in NL+EU but the role is in the US → "authorized: No",
+     "sponsorship: Yes". Flag whenever the role country is outside the user's authorized regions.
    - **Legal attestations** (non-compete, felony, illegal activity, accommodation, previously-employed,
      age): fill **only** from a confirmed, non-blank `profile.md` value. If blank/unconfirmed, **flag and
      leave for the human** — never auto-attest a legal answer from a default.
@@ -38,6 +45,11 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
      matching prior Q&A. Prefer the newest, most company/role-specific match.
        - Match found → adapt and fill.
        - No match → write a best-guess grounded in resume + profile, fill it, and **flag** it.
+   - **File uploads (resume/CV, cover letter)**: Playwright can only read files under the project /
+     allowed root, so first copy `~/.dear-hiring-manager/resume.*` into the MCP output dir
+     (`.playwright-mcp/`), then upload from there.
+   - **Comboboxes**: many ATS (Greenhouse/Ashby) render react-select, not native `<select>` — click to
+     open, type the option text, then press Enter; don't rely on select-option.
    - Confidence rule: high confidence → fill quietly. Low confidence or anything legal/sensitive with
      no profile answer → fill best-guess **and flag**, or leave blank and flag. When in doubt, flag.
 
@@ -52,7 +64,7 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
    - Fit score.
    - Fields filled (grouped).
    - **⚑ Flagged fields** needing the human's eyes — list each with what you guessed and why.
-   - Any blanks you couldn't answer.
+   - **Required fields still blank/untouched** — list every one; the human must resolve these before Submit.
    Tell the human: review the tab, fix flagged items, then click Submit yourself.
 
 8. **Learn after submit.** When the human says they've submitted (or edited), ask what they changed.
@@ -62,5 +74,7 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
 ## Rules
 - AI understands; the browser + deterministic steps execute. Don't improvise clicks beyond filling.
 - Never Submit. Never solve CAPTCHAs. Never fabricate legal/EEO answers.
+- Fill or flag every field; never leave a required field silently blank.
+- Flag internal profile inconsistencies you spot (e.g. phone country code vs stated location).
 - Append-only memory: human edits win by being newer, not by overwriting.
 - One posting per run. Batch is Phase 2.
