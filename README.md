@@ -40,8 +40,8 @@ database, no extra API keys:
 
 ## Roadmap
 
-See [PLAN.md](PLAN.md). Phase 1 (interactive assisted apply) is what ships here; batch, tracking,
-cover letters, and an unattended daemon with deterministic HTTP submit come in later phases.
+Phase 1 (interactive assisted apply) is what ships here. Later phases: batch apply, application
+tracking, cover-letter generation, and an unattended daemon with deterministic HTTP submit.
 
 ## Guardrails
 
