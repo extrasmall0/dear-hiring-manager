@@ -55,8 +55,10 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
      root. Copy `~/.dear-hiring-manager/resume.*` into `.playwright-mcp/` (gitignored), upload from
      there, then delete the staged copy. Do NOT enable `--allow-unrestricted-file-access` — staging
      keeps the sandbox intact instead of exposing every file on the machine.
-   - **Comboboxes**: many ATS (Greenhouse/Ashby) render react-select, not native `<select>` — click to
-     open, type the option text, then press Enter; don't rely on select-option.
+   - **Comboboxes**: many ATS (Greenhouse/Ashby) render react-select, not native `<select>`. You MUST
+     first **click** the combobox to open its menu, THEN type the option text, THEN press Enter.
+     Typing/fill without opening first silently fails — the field stays empty (`Select...`). Re-snapshot
+     to confirm each value stuck; `browser_fill_form` with type `combobox` does not work on react-select.
    - Confidence rule: high confidence → fill quietly. Low confidence or anything legal/sensitive with
      no profile answer → fill best-guess **and flag**, or leave blank and flag. When in doubt, flag.
 
