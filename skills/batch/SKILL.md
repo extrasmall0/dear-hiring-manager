@@ -30,12 +30,14 @@ fit-gate. You never Submit anything.
      - Extract JD + company; score fit; **fit-gate**: below the profile's `Minimum fit score to apply`
        or a hard-eligibility blocker → mark `skipped`, do **not** fill, move on.
      - Otherwise fill-or-flag every field; generate a cover letter if the portal has one; **stop before Submit**.
-   - Update the row in `applications.md` (`status`: skipped | filled; record fit + flag count).
-   - On any hard error (CAPTCHA, unreadable form) → record it and continue; **never let one URL abort the batch**.
+   - Update the row in `applications.md` (`status`: skipped | filled | blocked; record fit + flag count).
+   - On any hard error (CAPTCHA, unreadable form) → set that row's `status=blocked` with the reason,
+     leave the tab open, and continue; **never let one URL abort the batch**. Never leave a row `in-progress`.
 
 3. **Combined review.** After all URLs, print ONE table: `company · role · fit · status · #flags · tab`.
-   Under it, list the flagged fields per filled application. Tell the human: review each tab, fix the
-   flagged items, and click Submit yourself on each.
+   **List any `blocked` apps (CAPTCHA/unreadable) FIRST — they need your manual action.** Then list the
+   flagged fields per filled application. Tell the human: handle the blocked tabs, review each filled tab,
+   fix the flagged items, and click Submit yourself on each.
 
 4. **Never Submit.** Every filled tab stays parked at its Submit button for the human.
 

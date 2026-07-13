@@ -66,7 +66,8 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
    tailored, truthful letter from the resume + JD, fill the field, and flag it review-me. Otherwise skip.
 
 6. **CAPTCHA / anti-bot.** If you hit a CAPTCHA or bot check, **do not attempt to solve or evade it.**
-   Stop, leave the tab as-is, and tell the human to complete that step manually.
+   Set the tracker row `status=blocked` (reason: CAPTCHA/bot check), leave the tab as-is, and tell the
+   human to complete that step manually.
 
 7. **Stop before Submit.** Leave the browser tab open, scrolled to / parked at the Submit button.
    Print a review summary:
