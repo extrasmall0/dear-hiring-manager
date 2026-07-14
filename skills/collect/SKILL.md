@@ -8,7 +8,9 @@ description: Auto-collect live job-posting URLs into ~/.dear-hiring-manager/urls
 Gather live posting URLs into `~/.dear-hiring-manager/urls.txt` so `/dear-hiring-manager:batch` can fill them.
 
 ## Input
-- Role keywords + optional location/remote (e.g. "Customer Success Manager, US remote").
+- Role keywords + optional location/remote (e.g. "Customer Success Manager, US remote"). **If none are
+  given, use the profile's `Desired job title(s)` + `Target experience level` + preferred locations as the
+  search** (only ask the user if those are blank too).
 - Optional count (default ~10).
 
 ## Procedure

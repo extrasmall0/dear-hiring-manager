@@ -40,8 +40,10 @@ so later applications fill themselves. Keep it fast — parse what you can, only
      in future (Yes / No / Not now, yes later); + country and visa status. On almost every form — get exact.
    - Compensation — **options** for salary (a few ranges + "market/negotiable", Other for an exact number)
      and notice period / earliest start (2 weeks / 1 month / immediately / flexible).
-   - **Application preferences** — **minimum fit score to apply** via **options** (e.g. 40 / 50 / 60 / 70,
-     default 50). Hard filter: apply scores each job first and STOPS before filling if below this number.
+   - **Job-search targets** — **desired job title(s)** (free text), **target experience level** (options:
+     Intern / Entry / Mid / Senior / Staff / Principal / Director), and **minimum fit score to apply**
+     (options 40 / 50 / 60 / 70, default 50; the hard filter apply scores each job against). The title +
+     level also feed `collect` as the default search.
    - **Standard screening (legal attestations)** — template leaves these **blank**. Offer the safe
      defaults (non-compete: No, felony: No, illegal activity: No, accommodation: No, previously employed
      here: No, 18+: Yes) as **options** and have the user confirm each or override. Write a value **only
