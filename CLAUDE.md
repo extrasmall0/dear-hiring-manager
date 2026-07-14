@@ -29,6 +29,10 @@ letters. Playwright does open/click/type/wait. Never make the LLM the hands.
 ## Invariants (do not break)
 - **Never click Submit.** Human owns the last click.
 - **Never solve/evade CAPTCHA.** Hit one → stop, hand to human.
+- **Portal accounts (Workday/iCIMS/etc.):** agent may auto-create/login with the profile email + a
+  **unique generated password stored in the macOS Keychain** (`security` CLI) — never a password in a
+  file, never reused across portals. Email-verification + signup CAPTCHA/2FA → pause for the human.
+- **Multi-page wizards:** fill each page, click Next, stop only at the FINAL Submit.
 - **Never auto-attest unconfirmed legal answers** (non-compete/felony/etc.). Blank in profile → flag,
   don't fill. Legal defaults are written only after explicit onboarding confirmation.
 - **Voluntary EEO blank → "prefer not to answer"** (never flag, never block).

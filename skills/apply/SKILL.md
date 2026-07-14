@@ -36,8 +36,28 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
    low-fit or ineligible), report the score, the threshold, and why, and do not fill the form. The user
    can override by replying "apply anyway" or lowering their threshold.
 
+3b. **Account / login wall (Workday, iCIMS, SuccessFactors — only after the fit-gate passes; never
+   create an account for a role you won't apply to).** If applying requires sign-in / create-account
+   before the form:
+   - **Already signed in** (persistent session) → continue.
+   - **Saved creds exist** → fetch this portal's password from the macOS Keychain
+     (`security find-generic-password -s dear-hiring-manager -a "<domain>|<email>" -w`) and log in with
+     the profile email + that password.
+   - **New portal** → generate a strong **unique** password (never reuse across portals), fill
+     create-account with the profile email + that password, submit, then **save it to the Keychain**
+     (`security add-generic-password -U -s dear-hiring-manager -a "<domain>|<email>" -w "<password>"`).
+     Passwords live **only** in the Keychain — never in `profile.md` / `answers.md` / any file.
+   - **Email verification** required → set tracker `status=blocked`, pause and ask the human to click the
+     verify link in their inbox (or, if a job-inbox integration is configured, open + click it), then resume.
+   - **CAPTCHA / 2FA on signup** → do not solve; set `blocked`, hand to the human, resume after.
+   Then continue to the form.
+
 4. **Map every field — fill or flag, never silently skip.** Every required field must end up either
-   filled or explicitly flagged; a blank required field is acceptable only when it is flagged. For each:
+   filled or explicitly flagged; a blank required field is acceptable only when it is flagged.
+   **Paginated wizards (Workday-style: My Information → My Experience → Questions → Self-Identify →
+   Review):** run this fill pass on **each page**, click **Next/Continue** to advance, re-snapshot after
+   every page, and only stop at the FINAL Submit (step 7) — **never click an intermediate Submit**. If the
+   portal offers **autofill-from-resume**, use it first, then complete/fix the parsed fields. For each field:
    - **Profile-backed** (name, contact, salary): fill from `profile.md`.
    - **Work authorization (per role country)**: answer for the ROLE's country — do not paste the
      profile's raw yes/no. E.g. authorized in NL+EU but the role is in the US → "authorized: No",
@@ -69,7 +89,8 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
    Set the tracker row `status=blocked` (reason: CAPTCHA/bot check), leave the tab as-is, and tell the
    human to complete that step manually.
 
-7. **Stop before Submit.** Leave the browser tab open, scrolled to / parked at the Submit button.
+7. **Stop before Submit.** Leave the browser tab open, parked at the **final** Submit button (for a
+   multi-page wizard, only after the last page is filled — intermediate Next/Continue is fine).
    Print a review summary:
    - Fit score.
    - Fields filled (grouped).
