@@ -28,7 +28,8 @@ so later applications fill themselves. Keep it fast — parse what you can, only
    to answer" where relevant; the user clicks (or types via "Other"). Batch up to 4 questions per
    picker call to minimize rounds. Use free-text prompts only for genuinely open fields (name, contact,
    links, an exact salary number, references). Fill every template field.
-   - Identity, contact, links — free text (or prefilled from the resume; just confirm).
+   - Identity, contact, and links — explicitly capture **LinkedIn, GitHub, and portfolio/website** (all
+     asked on most applications), plus email/phone. Free text; prefill from the resume, then confirm.
    - Location & relocation, remote/onsite — **options** (relocate: Yes/No; preference: Remote / Hybrid /
      Onsite / Open). Plus **home address** (street, city, state, ZIP) — free text; many forms require the
      full address, not just the city.
