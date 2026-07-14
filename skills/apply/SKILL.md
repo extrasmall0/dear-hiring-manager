@@ -71,6 +71,8 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
      matching prior Q&A. Prefer the newest, most company/role-specific match.
        - Match found → adapt and fill.
        - No match → write a best-guess grounded in resume + profile, fill it, and **flag** it.
+     Run **every** open-ended answer you write or adapt through the **`humanize`** skill — sound like the
+     candidate, no AI tells, no em/en-dashes, no parenthetical asides.
    - **File uploads (resume/CV, cover letter)**: Playwright MCP sandboxes file reads to the workspace
      root. Copy `~/.dear-hiring-manager/resume.*` into `.playwright-mcp/` (gitignored), upload from
      there, then delete the staged copy. Do NOT enable `--allow-unrestricted-file-access` — staging
