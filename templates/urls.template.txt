@@ -3,7 +3,7 @@
 #
 # This file is the single input to batch. Fill it however you like — all optional feeders land here:
 #   • by hand (just paste URLs below)
-#   • /dear-hiring-manager:collect  (web search)
+#   • /dear-hiring-manager:apify-collect  (Apify job scrapers)
 #   • an Apify (or other scraper) export
 #
 # Prefer DIRECT application URLs (Greenhouse / Lever / Ashby / Workday), NOT aggregator pages

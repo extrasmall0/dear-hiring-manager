@@ -44,7 +44,7 @@ so later applications fill themselves. Keep it fast — parse what you can, only
      Intern / Entry / Mid / Senior / Staff / Principal / Director), **years of experience** (options:
      0–2 / 3–5 / 5–8 / 8–12 / 12+, or an exact number — forms ask this constantly), and **minimum fit
      score to apply** (options 40 / 50 / 60 / 70, default 50; the hard filter apply scores each job
-     against). Title + level also feed `collect` as the default search.
+     against). Title + level also feed `apify-collect` as the default search.
    - **Standard screening (legal attestations)** — template leaves these **blank**. Offer the safe
      defaults (non-compete: No, felony: No, illegal activity: No, accommodation: No, previously employed
      here: No, 18+: Yes) as **options** and have the user confirm each or override. Write a value **only
@@ -61,7 +61,7 @@ so later applications fill themselves. Keep it fast — parse what you can, only
 
 6. **Seed the URL list.** If `~/.dear-hiring-manager/urls.txt` is missing, copy
    `${CLAUDE_PLUGIN_ROOT}/templates/urls.template.txt` there — this is the single input for
-   `/dear-hiring-manager:batch`. The user fills it however they like (by hand, `/collect`, or an Apify
+   `/dear-hiring-manager:batch`. The user fills it however they like (by hand, `/apify-collect`, or an Apify
    export); batch never needs anything but this file.
 
 7. **Confirm done.** Print the profile path and a one-line completeness check (any field still blank).
