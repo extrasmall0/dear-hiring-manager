@@ -24,14 +24,10 @@ Draft a tailored cover letter for one role. Truthful, specific, concise — neve
 3. **Voice + tone**: match the candidate's register from the resume — professional but distinct, not a
    corporate template. Role-fit: engineering → substance over polish; sales → lead with results/numbers;
    creative → a distinct perspective.
-4. **Sound human, not AI.** Write like a real person saying why they fit. Vary sentence length, use
-   contractions, be direct. **Never use em-dashes or en-dashes (— –) in the letter, and never use
-   parentheses for an aside or explanation.** Rewrite any such aside as a plain sentence or a comma clause.
-5. **Avoid the AI tells + clichés**: "I'm passionate/excited…", "team player", "hit the ground running",
-   "it's not just X, it's Y"; the words leverage, delve, robust, seamless, furthermore, moreover, deeply,
-   intricate; forced rule-of-three lists; generic skill claims with no evidence; over-explaining gaps or
-   pivots; fancy formatting that breaks ATS parsers. Keep it plain text.
-6. **Flag it review-me** and save to `~/.dear-hiring-manager/runs/<company-role-slug>/cover-letter.md`,
+4. **Humanize.** Run the draft through the **`humanize`** skill — no em/en-dashes, no parenthetical
+   asides, no AI tells, vary sentence length, sound like the candidate. Plus: no generic skill claims
+   without evidence, no over-explaining gaps or pivots, no ATS-breaking formatting (keep it plain text).
+5. **Flag it review-me** and save to `~/.dear-hiring-manager/runs/<company-role-slug>/cover-letter.md`,
    then deliver it to the form (see below).
 
 ## Deliver it to the form
