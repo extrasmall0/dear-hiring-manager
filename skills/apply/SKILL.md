@@ -91,13 +91,13 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
 
 7. **Stop before Submit.** Leave the browser tab open, parked at the **final** Submit button (for a
    multi-page wizard, only after the last page is filled — intermediate Next/Continue is fine).
-   Print a review summary:
-   - Fit score.
-   - Fields filled (grouped).
-   - **⚑ Flagged fields** needing the human's eyes — list each with what you guessed and why.
-   - **Required fields still blank/untouched** — list every one; the human must resolve these before Submit.
-   Update the tracker row `status=filled`. Tell the human: review the tab, fix flagged items, then click
-   Submit yourself.
+   Print a **BRIEF** review — do NOT dump every filled field. Just:
+   - One line: `fit N/100 · M fields filled`.
+   - **Flags in RED** — one line each, prefixed with 🔴 (terminal markdown has no text color, so 🔴 IS
+     the red): `🔴 <field>: <what you guessed / why>` for anything needing the human's eyes, and
+     `🔴 <field>: blank` for each required field left empty.
+   - If nothing needs attention, say so in one line ("nothing flagged").
+   Update the tracker row `status=filled`. Then one line: "Review the 🔴 items, fix, and Submit yourself."
 
 8. **Learn after submit.** When the human says they've submitted (or edited), ask what they changed.
    Route each change to the right place so future applications benefit:
