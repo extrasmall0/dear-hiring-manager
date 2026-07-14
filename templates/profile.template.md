@@ -17,6 +17,10 @@
 
 ## Location & relocation
 - Current city / country:
+- Street address:
+- Address line 2:
+- State / province:
+- ZIP / postal code:
 - Willing to relocate: 
 - Preferred locations:
 - Remote / hybrid / onsite preference:

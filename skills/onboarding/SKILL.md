@@ -30,7 +30,8 @@ so later applications fill themselves. Keep it fast — parse what you can, only
    links, an exact salary number, references). Fill every template field.
    - Identity, contact, links — free text (or prefilled from the resume; just confirm).
    - Location & relocation, remote/onsite — **options** (relocate: Yes/No; preference: Remote / Hybrid /
-     Onsite / Open).
+     Onsite / Open). Plus **home address** (street, city, state, ZIP) — free text; many forms require the
+     full address, not just the city.
    - **Work authorization** — **options**: authorized to work there (Yes/No); require sponsorship now or
      in future (Yes / No / Not now, yes later); + country and visa status. On almost every form — get exact.
    - Compensation — **options** for salary (a few ranges + "market/negotiable", Other for an exact number)
