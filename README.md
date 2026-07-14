@@ -1,5 +1,5 @@
 # dear-hiring-manager
-A 24/7 agent that writes 'Dear Hiring Manager' so you don't have to.
+Fills your job applications so you never have to write another 'Dear Hiring Manager.'
 
 It fills job applications for you and stops before Submit, so you review and send. It reads the job
 description, scores how well you fit, fills every field from your saved profile, drafts open-ended
