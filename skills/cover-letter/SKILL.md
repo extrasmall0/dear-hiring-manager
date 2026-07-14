@@ -12,19 +12,30 @@ Draft a tailored cover letter for one role. Truthful, specific, concise — neve
 - The job description + company. If given only a URL, open it and extract the JD first (see `apply`).
 
 ## Procedure
-1. Read the resume, profile, and JD.
-2. Draft the letter (~250–350 words, 3–4 short paragraphs):
-   - **Open** with the role + company by name and a one-line hook tying the candidate to the company's
-     mission / the JD's core problem.
-   - **Body**: 2–3 concrete, resume-backed proof points mapped to the JD's top requirements — use the
-     real metrics from the resume (e.g. "115% NRR", "grew a EUR 2–2.5M ARR book"). No claim that is not
-     in the resume.
-   - **Close**: brief, forward-looking, a call to connect.
-3. Match the candidate's register from the resume; plain, confident, specific. No buzzword soup, no
-   clichés ("I am writing to apply…", "team player", "hit the ground running").
-4. **Flag it review-me** and save to
-   `~/.dear-hiring-manager/runs/<company-role-slug>/cover-letter.md`. If a form field expects it, fill
-   that field with the text.
+1. Read the resume, profile, and JD. Find a hook: the JD's core problem, a recent company launch/news, or
+   a concrete result you can speak to.
+2. Draft the letter (**~300–400 words**, 3–4 short paragraphs; under 250 reads thin, over 500 won't get finished):
+   - **Open with a specific hook — NOT "I'm excited/passionate to apply."** Tie the first line to company
+     research / the JD's core problem / a concrete result. Specificity earns the second sentence read.
+   - **Body**: each paragraph maps one JD requirement to a real, resume-backed story **with numbers**
+     (2–3 measurable accomplishments, not a skills list). Mirror the JD's own language — "you need X, I did
+     Y" signals a careful read. No claim that isn't in the resume.
+   - **Close** with a direct call to action — ask for a conversation.
+3. **Voice + tone**: match the candidate's register from the resume — professional but distinct, not a
+   corporate template. Role-fit: engineering → substance over polish; sales → lead with results/numbers;
+   creative → a distinct perspective.
+4. **Avoid**: "I'm passionate/excited…", "team player", "hit the ground running"; generic skill claims with
+   no evidence; over-explaining gaps or pivots (confidence signals capability); fancy formatting that breaks
+   in ATS parsers — keep it plain text.
+5. **Flag it review-me** and save to `~/.dear-hiring-manager/runs/<company-role-slug>/cover-letter.md`,
+   then deliver it to the form (see below).
+
+## Deliver it to the form
+- **Textarea / "enter manually"** → fill the field with the letter text.
+- **File upload ("Attach")** → write the letter to a real file first
+  (`~/.dear-hiring-manager/runs/<slug>/cover-letter.txt`, or `.pdf`), stage it into `.playwright-mcp/`
+  (Playwright's sandbox root), upload from there, then delete the staged copy. Accepted types are usually
+  `pdf, doc, docx, txt, rtf`.
 
 ## Rules
 - **Truthful**: every claim traces to the resume/profile — no invented employers, titles, dates, or numbers.
