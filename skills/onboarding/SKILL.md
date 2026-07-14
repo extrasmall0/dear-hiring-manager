@@ -23,23 +23,28 @@ so later applications fill themselves. Keep it fast — parse what you can, only
    - Read it. Prefill name, contact, links, location, education, and an experience summary into the
      profile. Then only ask the user to confirm/correct those, not retype them.
 
-4. **Interview the gaps, section by section.** Fill every field in the template. Be efficient —
-   batch related questions, accept short answers.
-   - Identity, contact, links.
-   - Location & relocation, remote/onsite preference.
-   - **Work authorization**: country, "authorized to work?", "require sponsorship now or in future?",
-     visa status. These appear on almost every form — get them exact.
-   - Compensation expectation, notice period / earliest start.
-   - **Application preferences** — **minimum fit score to apply (0–100, default 50)**. This is the hard
-     filter: apply scores each job first and STOPS before filling if the score is below this number.
-   - **Standard screening (legal attestations)** — the template leaves these **blank**. Propose the
-     safe defaults (non-compete: No, felony: No, illegal activity: No, accommodation: No, previously
-     employed here: No, 18+: Yes) and have the user confirm each or override. Write a value **only
-     after explicit confirmation**. If the user skips, leave it blank — blank means *unconfirmed*, and
-     apply will flag it rather than attest.
-   - **EEO / demographics** (gender, race/ethnicity, veteran, disability): state clearly these are
-     **voluntary**; "prefer not to answer" is a valid, respected answer. Record exactly what they say.
-   - References.
+4. **Interview the gaps via the option-picker.** For every field whose answer is a discrete choice,
+   ASK WITH THE `AskUserQuestion` OPTION-PICKER (not prose) — present sensible options plus "prefer not
+   to answer" where relevant; the user clicks (or types via "Other"). Batch up to 4 questions per
+   picker call to minimize rounds. Use free-text prompts only for genuinely open fields (name, contact,
+   links, an exact salary number, references). Fill every template field.
+   - Identity, contact, links — free text (or prefilled from the resume; just confirm).
+   - Location & relocation, remote/onsite — **options** (relocate: Yes/No; preference: Remote / Hybrid /
+     Onsite / Open).
+   - **Work authorization** — **options**: authorized to work there (Yes/No); require sponsorship now or
+     in future (Yes / No / Not now, yes later); + country and visa status. On almost every form — get exact.
+   - Compensation — **options** for salary (a few ranges + "market/negotiable", Other for an exact number)
+     and notice period / earliest start (2 weeks / 1 month / immediately / flexible).
+   - **Application preferences** — **minimum fit score to apply** via **options** (e.g. 40 / 50 / 60 / 70,
+     default 50). Hard filter: apply scores each job first and STOPS before filling if below this number.
+   - **Standard screening (legal attestations)** — template leaves these **blank**. Offer the safe
+     defaults (non-compete: No, felony: No, illegal activity: No, accommodation: No, previously employed
+     here: No, 18+: Yes) as **options** and have the user confirm each or override. Write a value **only
+     after explicit confirmation**. Skipped → stays blank (unconfirmed); apply flags it, never auto-attests.
+   - **EEO / demographics** (gender, race/ethnicity, veteran, disability) — **options**, each including
+     "prefer not to answer". State clearly these are **voluntary**. Record exactly what they pick.
+   - Pronouns — **options** (He/him / She/her / They/them / Prefer not to say). References — free text
+     or "available on request".
 
 5. **Seed the answer memory.** If `~/.dear-hiring-manager/answers.md` is missing, copy
    `${CLAUDE_PLUGIN_ROOT}/templates/answers.template.md` there. Add a few starter entries from
