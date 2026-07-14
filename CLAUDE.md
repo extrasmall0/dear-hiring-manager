@@ -13,7 +13,7 @@ runtime; this repo is the skill/knowledge layer. (Phase 3 later adds a real daem
 letters. Playwright does open/click/type/wait. Never make the LLM the hands.
 
 ## Layout
-- `.claude-plugin/plugin.json` · `marketplace.json` — plugin + local marketplace (`dhm-local`)
+- `.claude-plugin/plugin.json` · `marketplace.json` — plugin + marketplace (`dhm`, hosted on GitHub)
 - `.mcp.json` — bundles Playwright MCP (`@playwright/mcp`)
 - `commands/` — thin entry points (`/dear-hiring-manager:onboard`, `:apply`)
 - `skills/onboarding/SKILL.md` — interview → `profile.md`, parse resume, seed `answers.md`
@@ -55,6 +55,6 @@ letters. Playwright does open/click/type/wait. Never make the LLM the hands.
   Commits). Work on a branch, not `main` directly; merge to `main` when Phase 1 is complete.
 
 ## How to test (dogfood, don't just check structure)
-1. `/plugin marketplace add <repo>` → `/plugin install dear-hiring-manager@dhm-local` → restart
+1. `/plugin marketplace add extrasmall0/dear-hiring-manager` → `/plugin install dear-hiring-manager@dhm` → restart
 2. `/dear-hiring-manager:onboard` (profile exists → offers edit)
 3. `/dear-hiring-manager:apply <real-job-url>` → drive Playwright, verify fill/flag/gate, stop before Submit

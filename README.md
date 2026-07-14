@@ -11,11 +11,13 @@ Runs as a Claude Code plugin. Your data stays in local files. No account, no clo
 
 ## Install
 
-1. Add this repo as a local marketplace, then install the plugin:
+1. Add the marketplace, then install the plugin:
    ```
-   /plugin marketplace add <path-to-this-repo>
-   /plugin install dear-hiring-manager@dhm-local
+   /plugin marketplace add extrasmall0/dear-hiring-manager
+   /plugin install dear-hiring-manager@dhm
    ```
+   That pulls straight from GitHub, no clone needed. (For local development instead, point the first
+   command at your checkout path: `/plugin marketplace add /path/to/dear-hiring-manager`.)
 2. Restart Claude Code so the bundled Playwright browser loads. Approve it when asked.
 
 Commands are namespaced: `/dear-hiring-manager:<command>`.
