@@ -2,6 +2,8 @@
 .DS_Store
 .playwright-mcp/
 /*.png
+.env
+*.env
 TODO.md
 PLAN.md
 PRD.md
