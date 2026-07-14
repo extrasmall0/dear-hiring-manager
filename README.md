@@ -1,4 +1,7 @@
 # dear-hiring-manager
+
+![dear-hiring-manager — fills your job applications and stops before Submit](assets/social-preview.png)
+
 Fills your job applications so you never have to write another 'Dear Hiring Manager.'
 
 It fills job applications for you and stops before Submit, so you review and send. It reads the job
@@ -94,3 +97,7 @@ filler works best landing straight on the real form.
 Today it runs inside Claude Code. You start a job or a batch, it fills, you submit. The next step is an
 unattended daemon that watches for new postings and fills them around the clock, so you only show up to
 review and send. That part is not built yet.
+
+## Star history
+
+[![Star History Chart](https://api.star-history.com/svg?repos=extrasmall0/dear-hiring-manager&type=Date)](https://star-history.com/#extrasmall0/dear-hiring-manager&Date)
