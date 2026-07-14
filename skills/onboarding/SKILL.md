@@ -20,16 +20,19 @@ so later applications fill themselves. Keep it fast — parse what you can, only
 
 3. **Register + parse the resume (do this first — it prefills most fields).**
    - Ask for the resume path. Copy it to `~/.dear-hiring-manager/resume.<ext>`.
-   - Read it. Prefill name, contact, links, location, education, and an experience summary into the
-     profile. Then only ask the user to confirm/correct those, not retype them.
+   - Read it. Prefill name, email/phone, location, education, and an experience summary into the
+     profile. Then only ask the user to confirm/correct those, not retype them. **Do NOT prefill
+     LinkedIn/GitHub/portfolio URLs from the resume — ask for those directly (see the interview step).**
 
 4. **Interview the gaps via the option-picker.** For every field whose answer is a discrete choice,
    ASK WITH THE `AskUserQuestion` OPTION-PICKER (not prose) — present sensible options plus "prefer not
    to answer" where relevant; the user clicks (or types via "Other"). Batch up to 4 questions per
    picker call to minimize rounds. Use free-text prompts only for genuinely open fields (name, contact,
    links, an exact salary number, references). Fill every template field.
-   - Identity, contact, and links — explicitly capture **LinkedIn, GitHub, and portfolio/website** (all
-     asked on most applications), plus email/phone. Free text; prefill from the resume, then confirm.
+   - Identity + email/phone/name — prefill from the resume, then confirm.
+   - **Links (LinkedIn, GitHub, portfolio/website): ALWAYS ASK the user directly — do NOT read them from
+     the resume, and NEVER guess a URL from the name.** In a PDF these are hyperlinks whose real target
+     URL usually can't be recovered by text parsing, so any parsed or name-guessed value is likely wrong.
    - Location & relocation, remote/onsite — **options** (relocate: Yes/No; preference: Remote / Hybrid /
      Onsite / Open). Plus **home address** (street, city, state, ZIP) — free text; many forms require the
      full address, not just the city.
