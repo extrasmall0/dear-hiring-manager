@@ -64,7 +64,13 @@ so later applications fill themselves. Keep it fast — parse what you can, only
    `/dear-hiring-manager:batch`. The user fills it however they like (by hand, `/apify-collect`, or an Apify
    export); batch never needs anything but this file.
 
-7. **Confirm done.** Print the profile path and a one-line completeness check (any field still blank).
+7. **Seed the secrets stub (optional Apify).** If `~/.dear-hiring-manager/.env` is missing, copy
+   `${CLAUDE_PLUGIN_ROOT}/templates/env.template` there **empty**. **Never ask for the Apify token in the
+   chat** (it would leak into the transcript) — just tell the user to open `~/.dear-hiring-manager/.env`
+   in an editor and paste their `APIFY_TOKEN` + `APIFY_ACTOR` there if they want `/apify-collect`. It's
+   optional; skip mention entirely if they don't use Apify.
+
+8. **Confirm done.** Print the profile path and a one-line completeness check (any field still blank).
    Tell them they can now run `/dear-hiring-manager:apply <job-url>`, or paste URLs into `urls.txt` and
    run `/dear-hiring-manager:batch`.
 
