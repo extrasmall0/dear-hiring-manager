@@ -39,6 +39,7 @@
 ## Application preferences
 - Desired job title(s):
 - Target experience level:
+- Years of experience (total):
 - Minimum fit score to apply (0–100): 50
 
 ## Standard screening (legal attestations — left BLANK until you confirm in onboarding)

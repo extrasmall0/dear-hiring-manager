@@ -41,9 +41,10 @@ so later applications fill themselves. Keep it fast — parse what you can, only
    - Compensation — **options** for salary (a few ranges + "market/negotiable", Other for an exact number)
      and notice period / earliest start (2 weeks / 1 month / immediately / flexible).
    - **Job-search targets** — **desired job title(s)** (free text), **target experience level** (options:
-     Intern / Entry / Mid / Senior / Staff / Principal / Director), and **minimum fit score to apply**
-     (options 40 / 50 / 60 / 70, default 50; the hard filter apply scores each job against). The title +
-     level also feed `collect` as the default search.
+     Intern / Entry / Mid / Senior / Staff / Principal / Director), **years of experience** (options:
+     0–2 / 3–5 / 5–8 / 8–12 / 12+, or an exact number — forms ask this constantly), and **minimum fit
+     score to apply** (options 40 / 50 / 60 / 70, default 50; the hard filter apply scores each job
+     against). Title + level also feed `collect` as the default search.
    - **Standard screening (legal attestations)** — template leaves these **blank**. Offer the safe
      defaults (non-compete: No, felony: No, illegal activity: No, accommodation: No, previously employed
      here: No, 18+: Yes) as **options** and have the user confirm each or override. Write a value **only
