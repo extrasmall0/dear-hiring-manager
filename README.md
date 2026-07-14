@@ -1,48 +1,94 @@
 # dear-hiring-manager
 A 24/7 agent that writes 'Dear Hiring Manager' so you don't have to.
 
-Assisted job-application filler for Claude Code. It extracts the job description, scores your fit,
-fills every form field from your profile and answer memory, flags anything uncertain — and **stops
-before Submit** so you own the last click. AI understands; the browser executes.
+It fills job applications for you and stops before Submit, so you review and send. It reads the job
+description, scores how well you fit, fills every field from your saved profile, drafts open-ended
+answers and a cover letter in your own voice, then parks the tab at the Submit button. You look it over
+and click Submit. It never submits for you.
 
-## Quick start
+Runs as a Claude Code plugin. Your data stays in local files. No account, no cloud, no extra API keys
+(Apify is optional).
 
-1. **Install the plugin** (local dev):
+## Install
+
+1. Add this repo as a local marketplace, then install the plugin:
    ```
-   /plugin marketplace add /Users/you/PycharmProjects/dear-hiring-manager
+   /plugin marketplace add <path-to-this-repo>
    /plugin install dear-hiring-manager@dhm-local
    ```
-   Then **restart Claude Code** so the bundled Playwright MCP server (`@playwright/mcp`) loads;
-   approve it when prompted. Plugin commands are namespaced as `/dear-hiring-manager:<command>`.
+2. Restart Claude Code so the bundled Playwright browser loads. Approve it when asked.
 
-2. **Onboard once** — build your profile and register your resume:
-   ```
-   /dear-hiring-manager:onboard
-   ```
-   Writes `~/.dear-hiring-manager/profile.md` (identity, work authorization, EEO, screening answers).
+Commands are namespaced: `/dear-hiring-manager:<command>`.
 
-3. **Apply to a job** — fill a posting, review, submit yourself:
-   ```
-   /dear-hiring-manager:apply https://boards.greenhouse.io/acme/jobs/123456
-   ```
-   Opens the posting in a browser, fills the form, parks at Submit. You review the flagged fields and
-   click Submit. Your edits are learned back into `~/.dear-hiring-manager/answers.md`.
+## Set up your profile (once)
 
-## Your data
+```
+/dear-hiring-manager:onboard
+```
+It interviews you and registers your resume. It asks for your identity and contact, your LinkedIn,
+GitHub and portfolio links, your home address, work authorization, EEO answers, the standard screening
+questions, your desired job titles, target level, years of experience, salary expectation, and a
+minimum fit score. Everything lands in `~/.dear-hiring-manager/profile.md`, which you can open and edit
+by hand anytime.
 
-Everything lives in `~/.dear-hiring-manager/` as plain Markdown — human-readable, git-friendly, no
-database, no extra API keys:
+## Apply to one job
 
-- `profile.md` — who you are, work auth, EEO, standard screening answers
-- `answers.md` — append-only Q&A memory (the lightweight "RAG")
-- `applications.md` — tracker (one row per application)
-- `resume.*` — your registered resume
+```
+/dear-hiring-manager:apply <job-url>
+```
+It opens the posting and scores your fit first. If the job clears your minimum fit score, it fills the
+form. Anything it is unsure about it flags in red. It stops at the Submit button. You fix the flagged
+items and send.
+
+## Apply to many at once
+
+Put job URLs in `~/.dear-hiring-manager/urls.txt`, one per line, then:
+```
+/dear-hiring-manager:batch
+```
+Each job opens in its own tab. It runs unattended, so you can walk away. It fills the clean postings and
+parks them at Submit, and it marks anything that needs you, like a login wall, an email verification, or
+a CAPTCHA, as blocked without pausing. Come back and review the parked and blocked tabs in one pass.
+
+## Fill urls.txt
+
+`urls.txt` is the only input `batch` needs. Fill it however you like:
+
+- By hand: paste job URLs into `~/.dear-hiring-manager/urls.txt`.
+- With Apify: `/dear-hiring-manager:apify-collect` runs your Apify job scraper and appends fresh URLs.
+  Put `APIFY_TOKEN` and `APIFY_ACTOR` in `~/.dear-hiring-manager/.env` first. That file is gitignored and
+  never leaves your machine.
+
+Prefer direct application links (Greenhouse, Lever, Ashby, Workday) over LinkedIn or Indeed pages. The
+filler works best landing straight on the real form.
+
+## Other commands
+
+- `/dear-hiring-manager:board` shows your pipeline grouped by status, with a response rate and what needs
+  your attention.
+- `/dear-hiring-manager:cover-letter <url>` writes a tailored cover letter on its own.
+
+## Your data (all local, plain files)
+
+```
+~/.dear-hiring-manager/
+  profile.md        who you are, work auth, EEO, screening answers, job targets
+  answers.md        a growing memory of how you answered past questions
+  applications.md   the tracker, one row per job
+  urls.txt          the job list for batch
+  resume.*          your registered resume
+  .env              your Apify token, optional, gitignored
+```
+
+## What it will not do
+
+- It never clicks Submit. You own the last click.
+- It never solves or evades a CAPTCHA. It stops and hands it to you.
+- It never fills a legal or EEO answer you did not confirm.
+- It never invents a claim that is not in your resume.
 
 ## Roadmap
 
-Phase 1 (interactive assisted apply) is what ships here. Later phases: batch apply, application
-tracking, cover-letter generation, and an unattended daemon with deterministic HTTP submit.
-
-## Guardrails
-
-No auto-submit. No CAPTCHA evasion. No fabricated legal/EEO answers. Human owns the last inch.
+Today it runs inside Claude Code. You start a job or a batch, it fills, you submit. The next step is an
+unattended daemon that watches for new postings and fills them around the clock, so you only show up to
+review and send. That part is not built yet.
