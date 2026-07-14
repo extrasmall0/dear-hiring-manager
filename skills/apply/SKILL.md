@@ -82,8 +82,10 @@ Data lives in `~/.dear-hiring-manager/`: `profile.md`, `answers.md`, `applicatio
    - Confidence rule: high confidence → fill quietly. Low confidence or anything legal/sensitive with
      no profile answer → fill best-guess **and flag**, or leave blank and flag. When in doubt, flag.
 
-5. **Cover letter.** If the form has a cover-letter field, use the **cover-letter** skill to draft a
-   tailored, truthful letter from the resume + JD, fill the field, and flag it review-me. Otherwise skip.
+5. **Cover letter (auto-detect + deliver).** If the form has a cover-letter field — a **textarea** OR a
+   **file-upload** ("Attach" a cover letter) — automatically invoke the **cover-letter** skill to draft a
+   tailored, truthful letter from resume + JD, then **deliver it**: fill the textarea, or (for upload)
+   save it to a file and upload it (per the cover-letter skill). Flag it review-me. No such field → skip.
 
 6. **CAPTCHA / anti-bot.** If you hit a CAPTCHA or bot check, **do not attempt to solve or evade it.**
    Set the tracker row `status=blocked` (reason: CAPTCHA/bot check), leave the tab as-is, and tell the
