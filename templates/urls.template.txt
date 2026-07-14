@@ -1,0 +1,14 @@
+# dear-hiring-manager — job URLs for /dear-hiring-manager:batch (one URL per line).
+# Lines starting with # are ignored. Put a "# Company — Role" comment above each URL for readability.
+#
+# This file is the single input to batch. Fill it however you like — all optional feeders land here:
+#   • by hand (just paste URLs below)
+#   • /dear-hiring-manager:collect  (web search)
+#   • an Apify (or other scraper) export
+#
+# Prefer DIRECT application URLs (Greenhouse / Lever / Ashby / Workday), NOT aggregator pages
+# (LinkedIn / Indeed) — the filler works best landing straight on the real ATS form.
+#
+# Example:
+# # Acme — Senior ML Engineer
+# https://job-boards.greenhouse.io/acme/jobs/1234567
