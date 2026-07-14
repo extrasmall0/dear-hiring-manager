@@ -56,8 +56,14 @@ so later applications fill themselves. Keep it fast — parse what you can, only
    **confirmed, non-blank** profile fields (work authorization, sponsorship, relocation, salary) in the
    entry format, `source: profile`. Never seed unconfirmed or blank values (especially legal attestations).
 
-6. **Confirm done.** Print the profile path and a one-line completeness check (any field still blank).
-   Tell them they can now run `/dear-hiring-manager:apply <job-url>`.
+6. **Seed the URL list.** If `~/.dear-hiring-manager/urls.txt` is missing, copy
+   `${CLAUDE_PLUGIN_ROOT}/templates/urls.template.txt` there — this is the single input for
+   `/dear-hiring-manager:batch`. The user fills it however they like (by hand, `/collect`, or an Apify
+   export); batch never needs anything but this file.
+
+7. **Confirm done.** Print the profile path and a one-line completeness check (any field still blank).
+   Tell them they can now run `/dear-hiring-manager:apply <job-url>`, or paste URLs into `urls.txt` and
+   run `/dear-hiring-manager:batch`.
 
 ## Rules
 - Human-readable Markdown only. No database, no API keys.
