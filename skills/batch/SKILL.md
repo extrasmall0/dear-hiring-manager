@@ -34,10 +34,10 @@ fit-gate. You never Submit anything.
    - On any hard error (CAPTCHA, unreadable form) → set that row's `status=blocked` with the reason,
      leave the tab open, and continue; **never let one URL abort the batch**. Never leave a row `in-progress`.
 
-3. **Combined review.** After all URLs, print ONE table: `company · role · fit · status · #flags · tab`.
-   **List any `blocked` apps (CAPTCHA/unreadable) FIRST — they need your manual action.** Then list the
-   flagged fields per filled application. Tell the human: handle the blocked tabs, review each filled tab,
-   fix the flagged items, and click Submit yourself on each.
+3. **Combined review (brief).** After all URLs, print ONE table: `company · role · fit · status · #flags · tab`.
+   **List `blocked` apps (CAPTCHA/unreadable) FIRST, in red (🔴) — they need your manual action.** Then
+   under each filled app, one 🔴 line per flagged/blank field (🔴 = the red; terminal has no text color).
+   No dump of filled fields. Tell the human: handle the 🔴 tabs/items, then Submit each yourself.
 
 4. **Never Submit.** Every filled tab stays parked at its Submit button for the human.
 
