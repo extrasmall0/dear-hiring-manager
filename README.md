@@ -1,5 +1,13 @@
 # dear-hiring-manager
 
+<p align="center">
+  <a href="https://star-history.com/#extrasmall0/dear-hiring-manager&Date"><img alt="Stars" src="https://img.shields.io/github/stars/extrasmall0/dear-hiring-manager?style=for-the-badge&logo=github&logoColor=white&color=58a6ff&labelColor=0d1117"></a>
+  <img alt="Claude Code plugin" src="https://img.shields.io/badge/Claude_Code-plugin-3fb950?style=for-the-badge&logo=anthropic&logoColor=white&labelColor=0d1117">
+  <img alt="Playwright driven" src="https://img.shields.io/badge/Playwright-driven-45ba4b?style=for-the-badge&logo=playwright&logoColor=white&labelColor=0d1117">
+  <img alt="Stops before Submit" src="https://img.shields.io/badge/stops_before-Submit-ffbd2e?style=for-the-badge&labelColor=0d1117">
+  <img alt="Human in the loop" src="https://img.shields.io/badge/human-in_the_loop-58a6ff?style=for-the-badge&labelColor=0d1117">
+</p>
+
 ![dear-hiring-manager — fills your job applications and stops before Submit](assets/social-preview.png)
 
 Fills your job applications so you never have to write another 'Dear Hiring Manager.'
@@ -100,4 +108,4 @@ review and send. That part is not built yet.
 
 ## Star history
 
-[![Star History Chart](https://api.star-history.com/svg?repos=extrasmall0/dear-hiring-manager&type=Date)](https://star-history.com/#extrasmall0/dear-hiring-manager&Date)
+[See the live star-history curve →](https://star-history.com/#extrasmall0/dear-hiring-manager&Date)
