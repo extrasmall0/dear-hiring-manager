@@ -4,18 +4,17 @@
   <a href="https://star-history.com/#extrasmall0/dear-hiring-manager&Date"><img alt="Stars" src="https://img.shields.io/github/stars/extrasmall0/dear-hiring-manager?style=for-the-badge&logo=github&logoColor=white&color=58a6ff&labelColor=0d1117"></a>
   <img alt="Claude Code plugin" src="https://img.shields.io/badge/Claude_Code-plugin-3fb950?style=for-the-badge&logo=anthropic&logoColor=white&labelColor=0d1117">
   <img alt="Playwright driven" src="https://img.shields.io/badge/Playwright-driven-45ba4b?style=for-the-badge&logo=playwright&logoColor=white&labelColor=0d1117">
-  <img alt="Stops before Submit" src="https://img.shields.io/badge/stops_before-Submit-ffbd2e?style=for-the-badge&labelColor=0d1117">
+  <img alt="MIT license" src="https://img.shields.io/badge/license-MIT-ffbd2e?style=for-the-badge&labelColor=0d1117">
   <img alt="Human in the loop" src="https://img.shields.io/badge/human-in_the_loop-58a6ff?style=for-the-badge&labelColor=0d1117">
 </p>
 
-![dear-hiring-manager — fills your job applications and stops before Submit](assets/social-preview.png)
+![dear-hiring-manager: fills your job applications in your own voice](assets/social-preview.png)
 
 Fills your job applications so you never have to write another 'Dear Hiring Manager.'
 
-It fills job applications for you and stops before Submit, so you review and send. It reads the job
-description, scores how well you fit, fills every field from your saved profile, drafts open-ended
-answers and a cover letter in your own voice, then parks the tab at the Submit button. You look it over
-and click Submit. It never submits for you.
+It reads the job description, scores how well you fit, fills every field from your saved profile, and
+drafts open-ended answers and a cover letter in your own voice. When the form is ready it parks the tab
+and leaves the final send to you.
 
 Runs as a Claude Code plugin. Your data stays in local files. No account, no cloud, no extra API keys
 (Apify is optional).
